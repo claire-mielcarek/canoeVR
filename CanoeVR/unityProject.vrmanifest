@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.canoevr.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\etudiant.LABORATOIRE\\Documents\\VR\\canoeVR\\CanoeVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "CanoeVR [Testing]"
+        }
+      }
+    }
+  ]
+}
