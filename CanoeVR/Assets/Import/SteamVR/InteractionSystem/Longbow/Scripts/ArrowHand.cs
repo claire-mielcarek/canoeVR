@@ -5,7 +5,7 @@
 //
 //=============================================================================
 
-using UnityEngine;
+/*using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -300,4 +300,4 @@ namespace Valve.VR.InteractionSystem
 			bow = hand.otherHand.GetComponentInChildren<Longbow>();
 		}
 	}
-}
+}*/
