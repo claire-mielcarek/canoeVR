@@ -8,11 +8,7 @@ public class Canoe : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speedTranslation;
     [SerializeField] private float speedRotation;
-
-    void Start() {
-        speedTranslation = 10.0f;
-        speedRotation = 5.0f;
-    }
+    [SerializeField] private float speedBuoyancy;
 
     void FixedUpdate()
     {
@@ -27,5 +23,44 @@ public class Canoe : MonoBehaviour
             rb.AddForce(canoe.right * speedRotation, ForceMode.Acceleration);
             rb.AddTorque(canoe.up * speedRotation, ForceMode.Acceleration);
         }
+
+        if(Input.GetKeyDown(KeyCode.O)) {
+            rb.AddForce(canoe.up * speedBuoyancy, ForceMode.Acceleration);
+        }
+    }
+
+    void OnTriggerStay(Collider other) {
+        Debug.Log("Trigger water");
+        if(other.gameObject.CompareTag("water")) {
+            buoyancy();
+        }
+    }
+
+    public void buoyancy() {
+        rb.AddForce(canoe.up * speedBuoyancy, ForceMode.Acceleration);
+    }
+
+    public void moveTopRight() {
+        rb.AddForce(canoe.forward * speedTranslation, ForceMode.Acceleration);
+        rb.AddForce(canoe.right * speedRotation, ForceMode.Acceleration);
+        rb.AddTorque(canoe.up * speedRotation, ForceMode.Acceleration);
+    }
+
+    public void moveTopLeft() {
+        rb.AddForce(canoe.forward * speedTranslation, ForceMode.Acceleration);
+        rb.AddForce(-canoe.right * speedRotation, ForceMode.Acceleration);
+        rb.AddTorque(-canoe.up * speedRotation, ForceMode.Acceleration);
+    }
+
+    public void moveBotRight() {
+        rb.AddForce(-canoe.forward * speedTranslation, ForceMode.Acceleration);
+        rb.AddForce(canoe.right * speedRotation, ForceMode.Acceleration);
+        rb.AddTorque(-canoe.up * speedRotation, ForceMode.Acceleration);
+    }
+
+    public void moveBotLeft() {
+        rb.AddForce(-canoe.forward * speedTranslation, ForceMode.Acceleration);
+        rb.AddForce(-canoe.right * speedRotation, ForceMode.Acceleration);
+        rb.AddTorque(canoe.up * speedRotation, ForceMode.Acceleration);
     }
 }

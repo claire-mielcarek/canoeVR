@@ -22,50 +22,39 @@ namespace Valve.VR.InteractionSystem
         private Vector3 lateUpdatePos;
         private Quaternion lateUpdateRot;
 
-
         SteamVR_Events.Action newPosesAppliedAction;
 
-        [SerializeField] private GameObject canoe;
-        private Vector3 moveForward = new Vector3(0, 0, 5);
-        //-------------------------------------------------
-        void Awake()
-        {
-            canoe = GameObject.FindGameObjectWithTag("canoe");
-        }
-
-        void Start()
-        {
-            canoe.GetComponent<Rigidbody>().AddForce(Vector3.forward * 10, ForceMode.Force);
-        }
-
-        void Update()
-        {
-            canoe.GetComponent<Rigidbody>().AddForce(Vector3.forward * 10, ForceMode.Force);
-        }
+        [SerializeField] private Canoe canoe;
+        [SerializeField] private GameObject topRightBC;
+        [SerializeField] private GameObject topLeftBC;
+        [SerializeField] private GameObject botRightBC;
+        [SerializeField] private GameObject botLeftBC;
 
         //-------------------------------------------------
+        
         void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("motorRight"))
+            if (other.gameObject == topRightBC) {
                 Debug.Log("triggerRight");
-            {
-                canoe.GetComponent<Rigidbody>().AddForce(moveForward);
+                canoe.moveTopRight();
             }
 
-            if (other.gameObject.CompareTag("motorLeft"))
+            if (other.gameObject == topLeftBC)
             {
                 Debug.Log("triggerLeft");
-                canoe.GetComponent<Rigidbody>().AddForce(moveForward);
+                canoe.moveTopLeft();
             }
         }
+
         //-------------------------------------------------
+
         private void OnAttachedToHand(Hand attachedHand)
         {
             hand = attachedHand;
         }
 
-
         //-------------------------------------------------
+
         private void HandAttachedUpdate(Hand hand)
         {
             // Reset transform since we cheated it right after getting poses on previous frame
