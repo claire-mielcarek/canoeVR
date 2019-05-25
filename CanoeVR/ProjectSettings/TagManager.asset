@@ -8,8 +8,8 @@ TagManager:
   - FxTemporaire
   - water
   - canoe
-  - motorRight
-  - motorLeft
+  - paddleRight
+  - paddleLeft
   layers:
   - Default
   - TransparentFX
