@@ -25,21 +25,17 @@ namespace Valve.VR.InteractionSystem
         SteamVR_Events.Action newPosesAppliedAction;
 
         [SerializeField] private Canoe canoe;
-        [SerializeField] private GameObject topRightBC;
-        [SerializeField] private GameObject topLeftBC;
-        [SerializeField] private GameObject botRightBC;
-        [SerializeField] private GameObject botLeftBC;
 
         //-------------------------------------------------
         
         void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject == topRightBC) {
+            if (other.gameObject.CompareTag("topRight")) {
                 Debug.Log("triggerRight");
                 canoe.moveTopRight();
             }
 
-            if (other.gameObject == topLeftBC)
+            if (other.gameObject.CompareTag("topLeft"))
             {
                 Debug.Log("triggerLeft");
                 canoe.moveTopLeft();

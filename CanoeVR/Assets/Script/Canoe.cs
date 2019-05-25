@@ -30,7 +30,7 @@ public class Canoe : MonoBehaviour
     }
 
     void OnTriggerStay(Collider other) {
-        Debug.Log("Trigger water");
+        //Debug.Log("Trigger water");
         if(other.gameObject.CompareTag("water")) {
             buoyancy();
         }

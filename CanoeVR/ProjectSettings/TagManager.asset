@@ -8,9 +8,11 @@ TagManager:
   - FxTemporaire
   - water
   - canoe
-  - paddleRight
-  - paddleLeft
   - cube
+  - topLeft
+  - topRight
+  - botLeft
+  - botRight
   layers:
   - Default
   - TransparentFX
