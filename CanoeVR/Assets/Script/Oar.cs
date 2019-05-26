@@ -24,24 +24,6 @@ namespace Valve.VR.InteractionSystem
 
         SteamVR_Events.Action newPosesAppliedAction;
 
-        [SerializeField] private Canoe canoe;
-
-        //-------------------------------------------------
-        
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.CompareTag("topRight")) {
-                Debug.Log("triggerRight");
-                canoe.moveTopRight();
-            }
-
-            if (other.gameObject.CompareTag("topLeft"))
-            {
-                Debug.Log("triggerLeft");
-                canoe.moveTopLeft();
-            }
-        }
-
         //-------------------------------------------------
 
         private void OnAttachedToHand(Hand attachedHand)

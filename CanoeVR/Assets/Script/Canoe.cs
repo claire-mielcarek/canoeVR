@@ -10,20 +10,17 @@ public class Canoe : MonoBehaviour
     [SerializeField] private float speedRotation;
     [SerializeField] private float speedBuoyancy;
 
-    private bool inWater;
+    [SerializeField] private bool inWater;
 
     void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.K)) {
-            rb.AddForce(canoe.forward * speedTranslation, ForceMode.Acceleration);
-            rb.AddForce(-canoe.right * speedRotation, ForceMode.Acceleration);
-            rb.AddTorque(-canoe.up * speedRotation, ForceMode.Acceleration);
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            moveTopLeft();
         }
 
         if(Input.GetKeyDown(KeyCode.M)) {
-            rb.AddForce(canoe.forward * speedTranslation, ForceMode.Acceleration);
-            rb.AddForce(canoe.right * speedRotation, ForceMode.Acceleration);
-            rb.AddTorque(canoe.up * speedRotation, ForceMode.Acceleration);
+            moveTopRight();
         }
 
         if(Input.GetKeyDown(KeyCode.O)) {
@@ -52,12 +49,18 @@ public class Canoe : MonoBehaviour
     }
 
     public void moveTopRight() {
+        rb.AddForce(Vector3.zero, ForceMode.Acceleration);
+        rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
+
         rb.AddForce(canoe.forward * speedTranslation, ForceMode.Acceleration);
         rb.AddForce(canoe.right * speedRotation, ForceMode.Acceleration);
         rb.AddTorque(canoe.up * speedRotation, ForceMode.Acceleration);
     }
 
     public void moveTopLeft() {
+        rb.AddForce(Vector3.zero, ForceMode.Acceleration);
+        rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
+
         rb.AddForce(canoe.forward * speedTranslation, ForceMode.Acceleration);
         rb.AddForce(-canoe.right * speedRotation, ForceMode.Acceleration);
         rb.AddTorque(-canoe.up * speedRotation, ForceMode.Acceleration);
