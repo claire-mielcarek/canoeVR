@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -652,6 +652,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8968171437885187933, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: m_Name
+      value: Canoe
+      objectReference: {fileID: 0}
     - target: {fileID: 1532684250, guid: eb0148632565a564190386f63e6a3402, type: 3}
       propertyPath: speedTranslation
       value: 50
@@ -659,11 +664,6 @@ PrefabInstance:
     - target: {fileID: 1532684250, guid: eb0148632565a564190386f63e6a3402, type: 3}
       propertyPath: speedBuoyancy
       value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968171437885187933, guid: eb0148632565a564190386f63e6a3402,
-        type: 3}
-      propertyPath: m_Name
-      value: Canoe
       objectReference: {fileID: 0}
     - target: {fileID: 8968171437885475883, guid: eb0148632565a564190386f63e6a3402,
         type: 3}
@@ -824,5 +824,58 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.347
       objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507457, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825507456, guid: eb0148632565a564190386f63e6a3402, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 212370497460711607, guid: 73ee065ffaef82d46894192fa6ef6462,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0148632565a564190386f63e6a3402, type: 3}
