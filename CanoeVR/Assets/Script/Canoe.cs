@@ -10,6 +10,8 @@ public class Canoe : MonoBehaviour
     [SerializeField] private float speedRotation;
     [SerializeField] private float speedBuoyancy;
 
+    private bool inWater;
+
     void FixedUpdate()
     {
         if(Input.GetKeyDown(KeyCode.K)) {
@@ -27,13 +29,22 @@ public class Canoe : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.O)) {
             rb.AddForce(canoe.up * speedBuoyancy, ForceMode.Acceleration);
         }
+
+        if(!inWater) {
+            rb.AddForce(-canoe.up * speedBuoyancy, ForceMode.Acceleration);
+        }
     }
 
     void OnTriggerStay(Collider other) {
         //Debug.Log("Trigger water");
         if(other.gameObject.CompareTag("water")) {
+            inWater = true;
             buoyancy();
         }
+    }
+
+    void OnTriggerExit(Collider other) {
+        inWater = false;
     }
 
     public void buoyancy() {
