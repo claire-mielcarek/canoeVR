@@ -6,45 +6,88 @@ public class Water : MonoBehaviour
 {
     [SerializeField] private GameObject canoe;
     [SerializeField] private GameObject hand;
+    [SerializeField] private GameObject oar;
 
-    private bool movement1 = false;
+    private Vector3 firstPos;
+    private Vector3 secondPos;
 
-    void OnTriggerEnter(Collider other)
+    //private bool forwardMovement = false;
+    //private bool backwardMovement = false;
+
+    //private bool paddling = false;
+
+    /*void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("oar"))
         {
             if (hand.transform.localPosition.z * 10 > 0)
             {
-                movement1 = true;
-                Debug.Log("movement1");
+                forwardMovement = true;
+            } else {
+                backwardMovement = true;
             }
         }
-    }
+    }*/
 
-    void OnTriggerStay(Collider other)
+    /*void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("oar"))
-        {
-            if (hand.transform.localPosition.x * 10 < 0 && hand.transform.localPosition.z * 10 < 0 && movement1)
-            {
+        if (other.gameObject.CompareTag("oar")) {
+            if (hand.transform.localPosition.x * 10 < 0 && hand.transform.localPosition.z * 10 < 0 && forwardMovement) {
                 canoe.GetComponent<Canoe>().moveTopRight();
-                movement1 = false;
-                Debug.Log("Droite");
-            }
-            else if (hand.transform.localPosition.x * 10 > 0 && hand.transform.localPosition.z * 10 < 0 && movement1)
-            {
+                forwardMovement = false;
+            } else if (hand.transform.localPosition.x * 10 > 0 && hand.transform.localPosition.z * 10 < 0 && forwardMovement) {
                 canoe.GetComponent<Canoe>().moveTopLeft();
-                movement1 = false;
-                Debug.Log("Gauche");
+                forwardMovement = false;
+            } else if (hand.transform.localPosition.x * 10 < 0 && hand.transform.localPosition.z * 10 > 0 && backwardMovement) {
+                canoe.GetComponent<Canoe>().moveBotRight();
+                backwardMovement = false;
+            } else if (hand.transform.localPosition.x * 10 > 0 && hand.transform.localPosition.z * 10 > 0 && backwardMovement) {
+                canoe.GetComponent<Canoe>().moveBotLeft();
+                backwardMovement = false;
             }
         }
-    }
+    }*/
 
-    void OnTriggerExit(Collider other)
+    /*void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("oar"))
         {
-            movement1 = false;
+            forwardMovement = false;
+            backwardMovement = false;
+        }
+    }*/
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("oar"))
+        {
+            //firstPos = oar.transform;
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit))
+            {
+                Debug.Log("Point of contact: "+ hit.point);
+            }
+            firstPos = hit.point;
+        }
+    }
+
+    void OnTriggerExit(Collider other) {
+        if (other.gameObject.CompareTag("oar"))
+        {
+            /*secondPos = oar.transform;
+            float distanceY = firstPos.transform.position.y - secondPos.transform.position.y;
+            float distanceX = firstPos.transform.position.x - secondPos.transform.position.x;
+            canoe.GetComponent<Canoe>().move(distanceY, distanceX);*/
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit))
+            {
+                Debug.Log("Point of contact: "+ hit.point);
+            }
+            secondPos = hit.point;
+
+            float distanceY = firstPos.y - secondPos.y;
+            float distanceX = firstPos.x - secondPos.x;
+            canoe.GetComponent<Canoe>().move(distanceY, distanceX);
         }
     }
 }
