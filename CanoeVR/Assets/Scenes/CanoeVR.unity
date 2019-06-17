@@ -672,10 +672,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canoe
       objectReference: {fileID: 0}
-    - target: {fileID: 1532684250, guid: eb0148632565a564190386f63e6a3402, type: 3}
-      propertyPath: speedTranslationX
-      value: 1.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8968171437885475883, guid: eb0148632565a564190386f63e6a3402,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -731,15 +727,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8968171438466697447, guid: eb0148632565a564190386f63e6a3402,
+    - target: {fileID: 8968171437421241898, guid: eb0148632565a564190386f63e6a3402,
         type: 3}
-      propertyPath: m_Drag
-      value: 1
+      propertyPath: m_LocalScale.x
+      value: 0.9653631
       objectReference: {fileID: 0}
-    - target: {fileID: 8968171438466697447, guid: eb0148632565a564190386f63e6a3402,
+    - target: {fileID: 8968171437421241898, guid: eb0148632565a564190386f63e6a3402,
         type: 3}
-      propertyPath: m_AngularDrag
-      value: 1
+      propertyPath: m_LocalScale.y
+      value: 0.9653631
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968171437421241898, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9653631
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968171437421241898, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.615
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968171437421241898, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0148632565a564190386f63e6a3402, type: 3}
