@@ -53,14 +53,12 @@ public class Canoe : MonoBehaviour
 
     public void move(float translationZ, float translationX) {
         this.speedTranslationZ = translationZ * 10;
-        this.speedTranslationX = translationX * 10;
-        this.speedRotationY = translationX;
+        this.speedRotationY = translationX * 10;
 
         rb.AddForce(Vector3.zero, ForceMode.Acceleration);
         rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
 
         rb.AddForce(canoe.forward * speedTranslationZ, ForceMode.Acceleration);
-        rb.AddForce(canoe.right * speedTranslationX, ForceMode.Acceleration);
         rb.AddTorque(canoe.up * speedRotationY, ForceMode.Acceleration);
     }
 
@@ -69,7 +67,6 @@ public class Canoe : MonoBehaviour
         rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
 
         rb.AddForce(canoe.forward * speedTranslationZ, ForceMode.Acceleration);
-        rb.AddForce(canoe.right * speedTranslationX, ForceMode.Acceleration);
         rb.AddTorque(canoe.up * speedRotationY, ForceMode.Acceleration);
     }
 
@@ -78,19 +75,22 @@ public class Canoe : MonoBehaviour
         rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
 
         rb.AddForce(canoe.forward * speedTranslationZ, ForceMode.Acceleration);
-        rb.AddForce(-canoe.right * speedTranslationX, ForceMode.Acceleration);
         rb.AddTorque(-canoe.up * speedRotationY, ForceMode.Acceleration);
     }
 
     public void moveBotRight() {
+        rb.AddForce(Vector3.zero, ForceMode.Acceleration);
+        rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
+
         rb.AddForce(-canoe.forward * speedTranslationZ, ForceMode.Acceleration);
-        rb.AddForce(canoe.right * speedTranslationX, ForceMode.Acceleration);
         rb.AddTorque(-canoe.up * speedRotationY, ForceMode.Acceleration);
     }
 
     public void moveBotLeft() {
+        rb.AddForce(Vector3.zero, ForceMode.Acceleration);
+        rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
+
         rb.AddForce(-canoe.forward * speedTranslationZ, ForceMode.Acceleration);
-        rb.AddForce(-canoe.right * speedTranslationX, ForceMode.Acceleration);
         rb.AddTorque(canoe.up * speedRotationY, ForceMode.Acceleration);
     }
 }

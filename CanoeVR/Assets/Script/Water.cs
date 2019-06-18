@@ -86,7 +86,7 @@ public class Water : MonoBehaviour
             secondPos = hit.point;
 
             float distanceY = firstPos.y - secondPos.y;
-            float distanceX = firstPos.x - secondPos.x;
+            float distanceX = -firstPos.x;
             canoe.GetComponent<Canoe>().move(distanceY, distanceX);
         }
     }
