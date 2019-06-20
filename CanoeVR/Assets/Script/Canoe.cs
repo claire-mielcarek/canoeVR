@@ -52,8 +52,10 @@ public class Canoe : MonoBehaviour
     }
 
     public void move(float translationZ, float translationX) {
-        this.speedTranslationZ = translationZ * 10;
-        this.speedRotationY = translationX * 10;
+        speedTranslationZ = translationZ * 300;
+        Debug.Log("translation" + speedTranslationZ);
+        speedRotationY = translationX * 30;
+        Debug.Log("rotation" + speedRotationY);
 
         rb.AddForce(Vector3.zero, ForceMode.Acceleration);
         rb.AddTorque(Vector3.zero, ForceMode.Acceleration);

@@ -6,7 +6,6 @@ public class Water : MonoBehaviour
 {
     [SerializeField] private GameObject canoe;
     [SerializeField] private GameObject hand;
-    [SerializeField] private GameObject oar;
 
     private Vector3 firstPos;
     private Vector3 secondPos;
@@ -14,12 +13,11 @@ public class Water : MonoBehaviour
     //private bool forwardMovement = false;
     //private bool backwardMovement = false;
 
-    //private bool paddling = false;
-
     /*void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("oar"))
         {
+            Debug.Log("movement 1");
             if (hand.transform.localPosition.z * 10 > 0)
             {
                 forwardMovement = true;
@@ -60,34 +58,42 @@ public class Water : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("oar"))
         {
-            //firstPos = oar.transform;
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit))
-            {
-                Debug.Log("Point of contact: "+ hit.point);
-            }
-            firstPos = hit.point;
+            firstPos = hand.transform.localPosition;
+            StartCoroutine(waiter());
         }
     }
+
+    /*void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("oar"))
+        {
+            secondPos = hand.transform.localPosition;
+
+            float distanceZ = firstPos.z - secondPos.z;
+            float distanceX = -firstPos.x;
+            canoe.GetComponent<Canoe>().move(distanceZ, distanceX);
+        }
+    }*/
 
     void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("oar"))
         {
-            /*secondPos = oar.transform;
-            float distanceY = firstPos.transform.position.y - secondPos.transform.position.y;
-            float distanceX = firstPos.transform.position.x - secondPos.transform.position.x;
-            canoe.GetComponent<Canoe>().move(distanceY, distanceX);*/
+            /*secondPos = hand.transform.localPosition;
 
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit))
-            {
-                Debug.Log("Point of contact: "+ hit.point);
-            }
-            secondPos = hit.point;
-
-            float distanceY = firstPos.y - secondPos.y;
+            float distanceZ = firstPos.z - secondPos.z;
             float distanceX = -firstPos.x;
-            canoe.GetComponent<Canoe>().move(distanceY, distanceX);
+            canoe.GetComponent<Canoe>().move(distanceZ, distanceX);*/
         }
+    }
+
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        secondPos = hand.transform.localPosition;
+
+        float distanceZ = firstPos.z - secondPos.z;
+        float distanceX = -firstPos.x;
+        canoe.GetComponent<Canoe>().move(distanceZ, distanceX);
     }
 }
