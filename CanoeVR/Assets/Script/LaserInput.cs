@@ -38,9 +38,11 @@ public class LaserInput : MonoBehaviour
 
                 //Checks based off the name
                 string tag = currentObject.tag;
+                Debug.Log("laser points on " + currentObject);
                 if (tag == "Tuto")
                 {
                     canvas.gameObject.SetActive(false);
+                    gameObject.GetComponent<SteamVR_LaserPointer>().enabled = false;
                 }
             }
         }
