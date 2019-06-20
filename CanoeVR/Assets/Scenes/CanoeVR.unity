@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -589,6 +589,32 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6122786702107463913, guid: 8049c1fa6235f8f46b65ecc78cc27e8e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122786702107463915, guid: 8049c1fa6235f8f46b65ecc78cc27e8e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3588017398515901605, guid: 8049c1fa6235f8f46b65ecc78cc27e8e,
+        type: 3}
+      propertyPath: canoe
+      value: 
+      objectReference: {fileID: 1768635421}
+    - target: {fileID: 3588017398515901605, guid: 8049c1fa6235f8f46b65ecc78cc27e8e,
+        type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1757244788}
+    - target: {fileID: 3588017398515901605, guid: 8049c1fa6235f8f46b65ecc78cc27e8e,
+        type: 3}
+      propertyPath: oar
+      value: 
+      objectReference: {fileID: 1108605154745634503, guid: fef4a8a40c6cc50438efa1ffac1014f6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8049c1fa6235f8f46b65ecc78cc27e8e, type: 3}
 --- !u!1001 &8713338494869495108
@@ -727,5 +753,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8930390915418626727, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: speedTranslationZ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930390915418626727, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: speedTranslationX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930390915418626727, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: speedRotationY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930390915418626727, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: speedBuoyancy
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930390915418626727, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: canoe
+      value: 
+      objectReference: {fileID: 8968171437158924422}
+    - target: {fileID: 8930390915418626727, guid: eb0148632565a564190386f63e6a3402,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 8968171437158924421}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0148632565a564190386f63e6a3402, type: 3}
+--- !u!54 &8968171437158924421 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8968171438466697447, guid: eb0148632565a564190386f63e6a3402,
+    type: 3}
+  m_PrefabInstance: {fileID: 8968171437158924420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8968171437158924422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8968171437885475883, guid: eb0148632565a564190386f63e6a3402,
+    type: 3}
+  m_PrefabInstance: {fileID: 8968171437158924420}
+  m_PrefabAsset: {fileID: 0}

@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8968171437885475883}
   - component: {fileID: 8968171438466697447}
   - component: {fileID: 8968171438466697440}
-  - component: {fileID: 1532684250}
+  - component: {fileID: 8930390915418626727}
   m_Layer: 0
   m_Name: Canoe
   m_TagString: canoe
@@ -145,7 +145,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 8dd89456558795c47a9f9c9d63919b1a, type: 3}
---- !u!114 &1532684250
+--- !u!114 &8930390915418626727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,9 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canoe: {fileID: 8968171437885475883}
   rb: {fileID: 8968171438466697447}
-  speedTranslationZ: 100
-  speedTranslationX: 1.1
-  speedRotationY: 5
+  speedTranslationZ: 0
+  speedTranslationX: 0
+  speedRotationY: 0
   speedBuoyancy: 0.2
   inWater: 0
 --- !u!1001 &4457645664770244183
