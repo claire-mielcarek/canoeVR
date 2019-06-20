@@ -6,15 +6,16 @@ public class Canoe : MonoBehaviour
 {
     [SerializeField] private Transform canoe;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float speedTranslation;
-    [SerializeField] private float speedRotation;
+    [SerializeField] private float speedTranslationZ;
+    [SerializeField] private float speedTranslationX;
+    [SerializeField] private float speedRotationY;
     [SerializeField] private float speedBuoyancy;
 
     [SerializeField] private bool inWater;
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if(Input.GetKeyDown(KeyCode.K))
         {
             moveTopLeft();
         }
@@ -29,14 +30,39 @@ public class Canoe : MonoBehaviour
 
         if(!inWater) {
             rb.AddForce(-canoe.up * speedBuoyancy, ForceMode.Acceleration);
+            //Debug.Log("Down");
+        } else {
+            rb.AddForce(canoe.up * speedBuoyancy, ForceMode.Acceleration);
+            //Debug.Log("Up");
+        }
+    }
+
+    void Update()
+    {
+        if (transform.eulerAngles.x != 0 || transform.eulerAngles.z != 0)
+        {
+            //Debug.Log("x = " + transform.eulerAngles.x);
+            //Debug.Log("z = " + transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
     }
 
     void OnTriggerStay(Collider other) {
-        //Debug.Log("Trigger water");
         if(other.gameObject.CompareTag("water")) {
             inWater = true;
-            buoyancy();
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("rightSide"))
+        {
+            Debug.Log("Good side !");
+            Ring();
+        }
+        else if (other.gameObject.CompareTag("wrongSide"))
+        {
+            Debug.Log("Wrong side ! :(");
         }
     }
 
@@ -48,33 +74,54 @@ public class Canoe : MonoBehaviour
         rb.AddForce(canoe.up * speedBuoyancy, ForceMode.Acceleration);
     }
 
+    public void move(float translationZ, float translationX) {
+        speedTranslationZ = translationZ * 300;
+        //Debug.Log("translation " + speedTranslationZ);
+        speedRotationY = translationX * 30;
+        //Debug.Log("rotation " + speedRotationY);
+
+        rb.AddForce(Vector3.zero, ForceMode.Acceleration);
+        rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
+
+        rb.AddForce(canoe.forward * speedTranslationZ, ForceMode.Acceleration);
+        rb.AddTorque(canoe.up * speedRotationY, ForceMode.Acceleration);
+    }
+
     public void moveTopRight() {
         rb.AddForce(Vector3.zero, ForceMode.Acceleration);
         rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
 
-        rb.AddForce(canoe.forward * speedTranslation, ForceMode.Acceleration);
-        rb.AddForce(canoe.right * speedRotation, ForceMode.Acceleration);
-        rb.AddTorque(canoe.up * speedRotation, ForceMode.Acceleration);
+        rb.AddForce(canoe.forward * speedTranslationZ, ForceMode.Acceleration);
+        rb.AddTorque(canoe.up * speedRotationY, ForceMode.Acceleration);
     }
 
     public void moveTopLeft() {
         rb.AddForce(Vector3.zero, ForceMode.Acceleration);
         rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
 
-        rb.AddForce(canoe.forward * speedTranslation, ForceMode.Acceleration);
-        rb.AddForce(-canoe.right * speedRotation, ForceMode.Acceleration);
-        rb.AddTorque(-canoe.up * speedRotation, ForceMode.Acceleration);
+        rb.AddForce(canoe.forward * speedTranslationZ, ForceMode.Acceleration);
+        rb.AddTorque(-canoe.up * speedRotationY, ForceMode.Acceleration);
     }
 
     public void moveBotRight() {
-        rb.AddForce(-canoe.forward * speedTranslation, ForceMode.Acceleration);
-        rb.AddForce(canoe.right * speedRotation, ForceMode.Acceleration);
-        rb.AddTorque(-canoe.up * speedRotation, ForceMode.Acceleration);
+        rb.AddForce(Vector3.zero, ForceMode.Acceleration);
+        rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
+
+        rb.AddForce(-canoe.forward * speedTranslationZ, ForceMode.Acceleration);
+        rb.AddTorque(-canoe.up * speedRotationY, ForceMode.Acceleration);
     }
 
     public void moveBotLeft() {
-        rb.AddForce(-canoe.forward * speedTranslation, ForceMode.Acceleration);
-        rb.AddForce(-canoe.right * speedRotation, ForceMode.Acceleration);
-        rb.AddTorque(canoe.up * speedRotation, ForceMode.Acceleration);
+        rb.AddForce(Vector3.zero, ForceMode.Acceleration);
+        rb.AddTorque(Vector3.zero, ForceMode.Acceleration);
+
+        rb.AddForce(-canoe.forward * speedTranslationZ, ForceMode.Acceleration);
+        rb.AddTorque(canoe.up * speedRotationY, ForceMode.Acceleration);
+    }
+
+
+    void Ring()
+    {
+        Debug.Log("Ajouter un son cool ici");
     }
 }

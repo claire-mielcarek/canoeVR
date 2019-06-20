@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6122786702107463912}
   - component: {fileID: 6122786702107463915}
   - component: {fileID: 6122786702107463914}
-  - component: {fileID: 1949941530}
+  - component: {fileID: 3588017398515901605}
   m_Layer: 0
   m_Name: Water
   m_TagString: water
@@ -207,7 +207,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7823637, y: 1, z: 0.763965}
   m_Center: {x: 0.10881858, y: 0, z: -0.19616765}
---- !u!114 &1949941530
+--- !u!114 &3588017398515901605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,3 +221,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canoe: {fileID: 0}
   hand: {fileID: 0}
+  oar: {fileID: 0}
