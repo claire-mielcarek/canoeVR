@@ -15,20 +15,12 @@ public class Canoe : MonoBehaviour
 
     Object[] woodSounds;
     public AudioSource audioBoat;
-    private AudioSource rightSideSound;
-    private AudioSource wrongSideSound;
 
     private void Awake()
     {
         woodSounds = Resources.LoadAll("WoodSounds", typeof(AudioClip));
         audioBoat = GetComponent<AudioSource>();
         audioBoat.clip = woodSounds[0] as AudioClip;
-        GameObject sounds = GameObject.Find("Sounds");
-        if (sounds)
-        {
-            rightSideSound = sounds.transform.Find("rightSideSound").GetComponentInChildren<AudioSource>();
-            wrongSideSound = sounds.transform.Find("wrongSideSound").GetComponentInChildren<AudioSource>();
-        }
 
 
     }
@@ -90,16 +82,6 @@ public class Canoe : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("rightSide"))
-        {
-            Debug.Log("Good side !");
-            Ring();
-        }
-        else if (other.gameObject.CompareTag("wrongSide"))
-        {
-            Debug.Log("Wrong side ! :(");
-            wrongSideSound.Play();
-        }
     }
 
     void OnTriggerExit(Collider other) {
@@ -156,9 +138,5 @@ public class Canoe : MonoBehaviour
     }
 
 
-    void Ring()
-    {
-        Debug.Log("Ajouter un son cool ici");
-        rightSideSound.Play();
-    }
+    
 }
