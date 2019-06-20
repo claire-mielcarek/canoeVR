@@ -13,8 +13,9 @@ TagManager:
   - topRight
   - botLeft
   - botRight
-  - cyLeftCollision
-  - cyRightCollision
+  - rightSide
+  - wrongSide
+  - Tuto
   layers:
   - Default
   - TransparentFX

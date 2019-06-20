@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Canoe : MonoBehaviour
 {
-    [SerializeField] private Transform canoe;
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private float speedTranslation;
-    [SerializeField] private float speedRotation;
-    [SerializeField] private float speedBuoyancy;
+    [SerializeField] public Transform canoe;
+    [SerializeField] public Rigidbody rb;
+    [SerializeField] public float speedTranslation;
+    [SerializeField] public float speedRotation;
+    [SerializeField] public float speedBuoyancy;
 
     private bool inWater;
 
@@ -43,6 +43,20 @@ public class Canoe : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.CompareTag("rightSide"))
+        {
+            Debug.Log("Good side !");
+            Ring();
+        }
+        else
+        {
+            Debug.Log("Wrong side ! :(");
+        }
+    }
+
     void OnTriggerExit(Collider other) {
         inWater = false;
     }
@@ -73,5 +87,11 @@ public class Canoe : MonoBehaviour
         rb.AddForce(-canoe.forward * speedTranslation, ForceMode.Acceleration);
         rb.AddForce(-canoe.right * speedRotation, ForceMode.Acceleration);
         rb.AddTorque(canoe.up * speedRotation, ForceMode.Acceleration);
+    }
+
+
+    void Ring()
+    {
+        Debug.Log("Ajouter un son cool ici");
     }
 }

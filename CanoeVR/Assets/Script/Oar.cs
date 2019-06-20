@@ -24,7 +24,7 @@ namespace Valve.VR.InteractionSystem
 
         SteamVR_Events.Action newPosesAppliedAction;
 
-        [SerializeField] private Canoe canoe;
+        [SerializeField] public Canoe canoe;
 
         //-------------------------------------------------
         
