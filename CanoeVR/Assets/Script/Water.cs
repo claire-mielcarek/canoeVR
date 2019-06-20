@@ -59,6 +59,13 @@ public class Water : MonoBehaviour
         if (other.gameObject.CompareTag("oar"))
         {
             Debug.Log("Paddling");
+            GameObject paddle = other.gameObject;
+            AudioSource paddlingSound = paddle.transform.Find("PaddlingSound").GetComponentInChildren<AudioSource>();
+            paddlingSound.Play();
+            if (paddlingSound.time > 0.9f)
+            {
+                paddlingSound.Stop();
+            }
             firstPos = hand.transform.localPosition;
             StartCoroutine(waiter());
         }
