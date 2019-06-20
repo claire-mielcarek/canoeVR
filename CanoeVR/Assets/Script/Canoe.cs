@@ -41,8 +41,8 @@ public class Canoe : MonoBehaviour
     {
         if (transform.eulerAngles.x != 0 || transform.eulerAngles.z != 0)
         {
-            Debug.Log("x = " + transform.eulerAngles.x);
-            Debug.Log("z = " + transform.eulerAngles.z);
+            //Debug.Log("x = " + transform.eulerAngles.x);
+            //Debug.Log("z = " + transform.eulerAngles.z);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
     }
@@ -50,6 +50,19 @@ public class Canoe : MonoBehaviour
     void OnTriggerStay(Collider other) {
         if(other.gameObject.CompareTag("water")) {
             inWater = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("rightSide"))
+        {
+            Debug.Log("Good side !");
+            Ring();
+        }
+        else if (other.gameObject.CompareTag("wrongSide"))
+        {
+            Debug.Log("Wrong side ! :(");
         }
     }
 
@@ -104,5 +117,11 @@ public class Canoe : MonoBehaviour
 
         rb.AddForce(-canoe.forward * speedTranslationZ, ForceMode.Acceleration);
         rb.AddTorque(canoe.up * speedRotationY, ForceMode.Acceleration);
+    }
+
+
+    void Ring()
+    {
+        Debug.Log("Ajouter un son cool ici");
     }
 }

@@ -58,6 +58,7 @@ public class Water : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("oar"))
         {
+            Debug.Log("Paddling");
             firstPos = hand.transform.localPosition;
             StartCoroutine(waiter());
         }

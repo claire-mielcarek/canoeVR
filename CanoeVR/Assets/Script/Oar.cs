@@ -24,7 +24,6 @@ namespace Valve.VR.InteractionSystem
 
         SteamVR_Events.Action newPosesAppliedAction;
 
-        //-------------------------------------------------
 
         private void OnAttachedToHand(Hand attachedHand)
         {
