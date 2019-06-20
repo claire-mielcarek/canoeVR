@@ -13,6 +13,41 @@ public class Canoe : MonoBehaviour
 
     [SerializeField] private bool inWater;
 
+    Object[] woodSounds;
+    public AudioSource audioBoat;
+    private AudioSource rightSideSound;
+    private AudioSource wrongSideSound;
+
+    private void Awake()
+    {
+        woodSounds = Resources.LoadAll("WoodSounds", typeof(AudioClip));
+        audioBoat = GetComponent<AudioSource>();
+        audioBoat.clip = woodSounds[0] as AudioClip;
+        GameObject sounds = GameObject.Find("Sounds");
+        if (sounds)
+        {
+            rightSideSound = sounds.transform.Find("rightSideSound").GetComponentInChildren<AudioSource>();
+            wrongSideSound = sounds.transform.Find("wrongSideSound").GetComponentInChildren<AudioSource>();
+        }
+
+
+    }
+
+    private void Start()
+    {
+        InvokeRepeating("PlayRandomWoodSound", 0.0f, 8.0f);
+    }
+
+    void PlayRandomWoodSound()
+    {
+        if (!audioBoat.isPlaying)
+        {
+            audioBoat.clip = woodSounds[Random.Range(0, woodSounds.Length)] as AudioClip;
+            audioBoat.volume = 0.01f;
+            audioBoat.Play();
+        }
+    }
+
     void FixedUpdate()
     {
         if(Input.GetKeyDown(KeyCode.K))
@@ -63,6 +98,7 @@ public class Canoe : MonoBehaviour
         else if (other.gameObject.CompareTag("wrongSide"))
         {
             Debug.Log("Wrong side ! :(");
+            wrongSideSound.Play();
         }
     }
 
@@ -123,5 +159,6 @@ public class Canoe : MonoBehaviour
     void Ring()
     {
         Debug.Log("Ajouter un son cool ici");
+        rightSideSound.Play();
     }
 }
