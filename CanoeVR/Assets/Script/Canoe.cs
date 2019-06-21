@@ -7,7 +7,6 @@ public class Canoe : MonoBehaviour
     [SerializeField] private Transform canoe;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speedTranslationZ;
-    [SerializeField] private float speedTranslationX;
     [SerializeField] private float speedRotationY;
     [SerializeField] private float speedBuoyancy;
 
