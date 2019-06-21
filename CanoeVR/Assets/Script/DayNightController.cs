@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/**
+ * Source: twiik.net
+ * Day night cycle script
+ **/
 public class DayNightController : MonoBehaviour
 {
 
