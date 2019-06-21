@@ -58,7 +58,7 @@ public class Water : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("oar"))
         {
-            Debug.Log("Paddling");
+            //Debug.Log("Paddling");
             GameObject paddle = other.gameObject;
             AudioSource paddlingSound = paddle.transform.Find("PaddlingSound").GetComponentInChildren<AudioSource>();
             paddlingSound.Play();
