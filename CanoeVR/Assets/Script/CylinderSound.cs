@@ -31,6 +31,7 @@ public class CylinderSound : MonoBehaviour
         {
             //Debug.Log("triggered left");
             Ring(true);
+            GetComponentInParent<ScoreCount>().incrementScore();
             triggered = true;
         }
         else if(!triggered && rightCollision.getTriggered())
