@@ -38,7 +38,7 @@ public class LaserInput : MonoBehaviour
 
                 //Checks based off the name
                 string tag = currentObject.tag;
-                Debug.Log("laser points on " + currentObject);
+                //Debug.Log("laser points on " + currentObject);
                 if (tag == "Tuto")
                 {
                     canvas.gameObject.SetActive(false);

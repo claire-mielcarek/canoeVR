@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5020544044025574724}
   - component: {fileID: 4357247673311682766}
   m_Layer: 0
-  m_Name: RightCylindre
+  m_Name: RedCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,8 +151,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.1}
-  m_Center: {x: -0.15, y: 0, z: -0.6}
+  m_Size: {x: 1, y: 0.3, z: 0.1}
+  m_Center: {x: -0.53, y: 0, z: -0.6}
 --- !u!114 &5923802999343422242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,8 +209,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.1}
-  m_Center: {x: 0.15, y: 0, z: -0.6}
+  m_Size: {x: 1, y: 0.3, z: 0.1}
+  m_Center: {x: 0.53, y: 0, z: -0.6}
 --- !u!114 &8843385112811791728
 MonoBehaviour:
   m_ObjectHideFlags: 0

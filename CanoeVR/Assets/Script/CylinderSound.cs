@@ -29,13 +29,13 @@ public class CylinderSound : MonoBehaviour
     {
         if (!triggered && leftCollision.getTriggered())
         {
-            Debug.Log("triggered left");
+            //Debug.Log("triggered left");
             Ring(true);
             triggered = true;
         }
         else if(!triggered && rightCollision.getTriggered())
         {
-            Debug.Log("triggered right");
+            //Debug.Log("triggered right");
             Ring(false);
             triggered = true;
         }

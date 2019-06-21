@@ -21,8 +21,6 @@ public class Canoe : MonoBehaviour
         woodSounds = Resources.LoadAll("WoodSounds", typeof(AudioClip));
         audioBoat = GetComponent<AudioSource>();
         audioBoat.clip = woodSounds[0] as AudioClip;
-
-
     }
 
     private void Start()
@@ -80,12 +78,11 @@ public class Canoe : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-    }
-
     void OnTriggerExit(Collider other) {
-        inWater = false;
+        if (other.gameObject.CompareTag("water"))
+        {
+            inWater = false;
+        }
     }
 
     public void buoyancy() {
@@ -95,7 +92,7 @@ public class Canoe : MonoBehaviour
     public void move(float translationZ, float translationX) {
         speedTranslationZ = translationZ * 300;
         //Debug.Log("translation " + speedTranslationZ);
-        speedRotationY = translationX * 30;
+        speedRotationY = translationX * 40;
         //Debug.Log("rotation " + speedRotationY);
 
         rb.AddForce(Vector3.zero, ForceMode.Acceleration);
@@ -136,7 +133,4 @@ public class Canoe : MonoBehaviour
         rb.AddForce(-canoe.forward * speedTranslationZ, ForceMode.Acceleration);
         rb.AddTorque(canoe.up * speedRotationY, ForceMode.Acceleration);
     }
-
-
-    
 }
